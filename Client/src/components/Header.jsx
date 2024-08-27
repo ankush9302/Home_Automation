@@ -96,16 +96,16 @@ function Header({ onToggleTheme, theme }) {
             <Box
               sx={{
                 position: 'relative',
-                borderRadius: (theme) => theme.shape.borderRadius,
-                backgroundColor: (theme) => theme.palette.common.white,
-                '&:hover': { backgroundColor: (theme) => theme.palette.common.white },
+                borderRadius: 'theme.shape.borderRadius',
+                backgroundColor: 'theme.palette.common.white',
+                '&:hover': { backgroundColor: 'theme.palette.common.white' },
                 marginRight: 2,
                 marginLeft: 0,
                 width: '100%',
-                [theme.breakpoints.up('sm')]: { marginLeft: 3, width: 'auto' },
+                ['@media (min-width:600px)']: { marginLeft: 3, width: 'auto' },
               }}
             >
-              <Box sx={{ padding: (theme) => theme.spacing(0, 2), height: '100%', position: 'absolute', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Box sx={{ padding: '0 16px', height: '100%', position: 'absolute', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <SearchIcon />
               </Box>
               <InputBase
@@ -113,10 +113,10 @@ function Header({ onToggleTheme, theme }) {
                 inputProps={{ 'aria-label': 'search' }}
                 sx={{
                   color: 'inherit',
-                  paddingLeft: (theme) => `calc(1em + ${theme.spacing(4)})`,
-                  transition: (theme) => theme.transitions.create('width'),
+                  paddingLeft: `calc(1em + 32px)`,
+                  transition: 'width 0.3s',
                   width: '100%',
-                  [theme.breakpoints.up('sm')]: { width: '20ch' },
+                  ['@media (min-width:600px)']: { width: '20ch' },
                 }}
               />
             </Box>
