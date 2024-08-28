@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { Typography, Box, Slider, Switch, Button, Divider } from '@mui/material';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import '../styles/cards.css';  // Import the common CSS
 
 function LightBulbCard() {
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const [lightStatus, setLightStatus] = useState(false);
   const [brightness, setBrightness] = useState(75);
 
   const handleBrightnessChange = (event, newValue) => {
     setBrightness(newValue);
+  };
+
+  // Redirect to detailed page
+  const redirectToDetails = () => {
+    navigate('/lightbulb'); // Adjust this path as per your routing
   };
 
   return (
@@ -43,8 +50,8 @@ function LightBulbCard() {
         />
       </Box>
 
-      <Button className="card-action" variant="outlined" color="primary" onClick={() => alert('Color control coming soon!')}>
-        Adjust Color
+      <Button className="card-action" variant="outlined" color="primary" onClick={redirectToDetails}>
+        View Detailed Analytics
       </Button>
     </div>
   );

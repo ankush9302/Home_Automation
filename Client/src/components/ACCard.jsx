@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Correct import for navigation
 import { Typography, Box, Slider, Switch, Button, Divider } from '@mui/material';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import '../styles/cards.css';  // Import the common CSS
@@ -7,9 +8,15 @@ function ACCard() {
   const [temperature, setTemperature] = useState(24);
   const [acStatus, setAcStatus] = useState(false);
   const [fanSpeed, setFanSpeed] = useState(1);
+  const navigate = useNavigate();  // Correct initialization for navigation
 
   const handleTempChange = (event, newValue) => {
     setTemperature(newValue);
+  };
+
+  // Corrected handleClick function to use navigate
+  const handleClick = () => {
+    navigate('/Ac');  // Correct use of navigate function to redirect to the AC page
   };
 
   return (
@@ -44,8 +51,8 @@ function ACCard() {
         <Typography variant="body1">Fan Speed: {fanSpeed}</Typography>
       </Box>
 
-      <Button className="card-action" variant="outlined" color="primary" onClick={() => alert('Fan speed control coming soon!')}>
-        Adjust Fan Speed
+      <Button className="card-action" variant="outlined" color="primary" onClick={handleClick}>
+        View Detailed Analytics
       </Button>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate hook
 import { Typography, Box, Slider, Switch, Button, Divider } from '@mui/material';
 import KitchenIcon from '@mui/icons-material/Kitchen';  // Icon for Refrigerator
 import WarningIcon from '@mui/icons-material/Warning';  // Icon for alerts
@@ -6,6 +7,8 @@ import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
 import '../styles/cards.css';  // Import the common CSS
 
 function SmartRefrigerator() {
+  const navigate = useNavigate();  // Initialize the navigate function
+
   const [fridgeTemp, setFridgeTemp] = useState(4); // Fridge compartment temperature in °C
   const [freezerTemp, setFreezerTemp] = useState(-18); // Freezer compartment temperature in °C
   const [ecoMode, setEcoMode] = useState(false); // Energy-saving mode
@@ -37,8 +40,13 @@ function SmartRefrigerator() {
     }
   };
 
+  // Handle button click to redirect to refrigerator page
+  const handleButtonClick = () => {
+    navigate('/refrigerator');  // Redirect to the Smart Refrigerator page
+  };
+
   return (
-    <div className="card-container">
+    <div className="card-container"> {/* Remove onClick from card */}
       <Box className="card-title">
         <Typography variant="h6">Smart Refrigerator</Typography>
         <KitchenIcon color="primary" sx={{ fontSize: 40 }} />
@@ -103,9 +111,9 @@ function SmartRefrigerator() {
         className="card-action"
         variant="outlined"
         color="primary"
-        onClick={() => alert('Defrost cycle management coming soon!')}
+        onClick={handleButtonClick}  // Only the button is clickable now
       >
-        Manage Defrost
+        View Detailed Analytics
       </Button>
     </div>
   );

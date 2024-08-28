@@ -3,6 +3,7 @@ import { Grid, Card, CardContent, Typography, Box, IconButton, Dialog, DialogTit
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import HomeIcon from '@mui/icons-material/Home';
 import AddIcon from '@mui/icons-material/Add';
+import AirIcon from '@mui/icons-material/Air';  // Import Air icon for Air Purifier representation
 import RemoveIcon from '@mui/icons-material/Remove';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -58,7 +59,7 @@ function ClimateSection() {
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" gutterBottom>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <WbSunnyIcon sx={{ mr: 1 }} /> Climate
+          <WbSunnyIcon sx={{ mr: 1 }} /> Others
         </Box>
       </Typography>
       <Grid container spacing={2}>
@@ -66,13 +67,15 @@ function ClimateSection() {
         <Grid item xs={12} sm={6} md={3}>
           <Card>
             <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
-              <WbSunnyIcon color="warning" sx={{ mr: 2 }} />
+              {/* Change the icon to one more representative of an Air Purifier */}
+              <AirIcon color="primary" sx={{ mr: 2 }} />
               <Box>
-                <Typography variant="body1">Sun</Typography>
-                <Typography variant="body2">Above horizon</Typography>
+                <Typography variant="body1">Air Purifier</Typography>
+                <Typography variant="body2">Status: Active</Typography>
               </Box>
             </CardContent>
           </Card>
+
         </Grid>
         {/* Music Card */}
         <Grid item xs={12} sm={6} md={3}>
@@ -115,7 +118,7 @@ function ClimateSection() {
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <HomeIcon color="warning" sx={{ mr: 1 }} />
-                <Typography variant="body1">Upstairs</Typography>
+                <Typography variant="body1">Living Room AC</Typography>
               </Box>
               <Typography variant="body2" sx={{ mb: 2 }}>
                 Comfort: 21.7°C

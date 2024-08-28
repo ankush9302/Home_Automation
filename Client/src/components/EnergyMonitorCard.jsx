@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Typography, Box, Switch, Button, Divider } from '@mui/material';
 import PowerIcon from '@mui/icons-material/Power';
 import '../styles/cards.css';  // Import the common CSS
 
 function EnergyMonitorCard() {
+  const navigate = useNavigate();
   const [powerUsage, setPowerUsage] = useState(500);
   const [monthlyUsage, setMonthlyUsage] = useState(150);
   const [monitorStatus, setMonitorStatus] = useState(false);
@@ -11,6 +13,10 @@ function EnergyMonitorCard() {
   const calculateCost = () => {
     const costPerKWh = 0.12; // Example rate
     return (monthlyUsage * costPerKWh).toFixed(2);
+  };
+
+  const handleButtonClick = () => {
+    navigate('/energy-monitor');  // Corrected redirection to the energy monitor page
   };
 
   return (
@@ -36,7 +42,7 @@ function EnergyMonitorCard() {
         />
       </Box>
 
-      <Button className="card-action" variant="outlined" color="primary" onClick={() => alert('More detailed analytics coming soon!')}>
+      <Button className="card-action" variant="outlined" color="primary" onClick={handleButtonClick}> {/* Corrected onClick function */}
         View Detailed Analytics
       </Button>
     </div>
