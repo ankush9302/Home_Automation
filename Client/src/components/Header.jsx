@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, InputBase, Badge, Box, Menu, MenuItem } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  InputBase,
+  Badge,
+  Box,
+  Menu,
+  MenuItem,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -86,7 +96,12 @@ function Header({ onToggleTheme, theme }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
@@ -96,16 +111,26 @@ function Header({ onToggleTheme, theme }) {
             <Box
               sx={{
                 position: 'relative',
-                borderRadius: 'theme.shape.borderRadius',
-                backgroundColor: 'theme.palette.common.white',
-                '&:hover': { backgroundColor: 'theme.palette.common.white' },
+                borderRadius: 1,
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.25)' },
                 marginRight: 2,
                 marginLeft: 0,
                 width: '100%',
                 ['@media (min-width:600px)']: { marginLeft: 3, width: 'auto' },
               }}
             >
-              <Box sx={{ padding: '0 16px', height: '100%', position: 'absolute', pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Box
+                sx={{
+                  padding: '0 16px',
+                  height: '100%',
+                  position: 'absolute',
+                  pointerEvents: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
                 <SearchIcon />
               </Box>
               <InputBase
@@ -130,12 +155,26 @@ function Header({ onToggleTheme, theme }) {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton edge="end" color="inherit" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onClick={handleProfileMenuOpen}>
+            <IconButton
+              edge="end"
+              color="inherit"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+            >
               <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton edge="end" color="inherit" aria-label="open drawer" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen}>
+            <IconButton
+              edge="end"
+              color="inherit"
+              aria-label="open drawer"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+            >
               <MoreIcon />
             </IconButton>
           </Box>

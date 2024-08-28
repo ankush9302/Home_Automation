@@ -9,6 +9,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 function ClimateSection() {
   const [acTemperatureDownstairs, setAcTemperatureDownstairs] = useState(25.5);
@@ -16,10 +17,14 @@ function ClimateSection() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(65);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const increaseTemperatureDownstairs = () => {
     setAcTemperatureDownstairs((prevTemp) => prevTemp + 0.5);
   };
+  const handleAcCard = () => {
+    navigate('/Ac')
+  }
 
   const decreaseTemperatureDownstairs = () => {
     setAcTemperatureDownstairs((prevTemp) => prevTemp - 0.5);
@@ -83,11 +88,11 @@ function ClimateSection() {
         </Grid>
         {/* Downstairs AC Card */}
         <Grid item xs={12} sm={6} md={3}>
-          <Card>
+          <Card onClick={handleAcCard}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <HomeIcon color="warning" sx={{ mr: 1 }} />
-                <Typography variant="body1">Downstairs</Typography>
+                <Typography variant="body1">Restroom Ac</Typography>
               </Box>
               <Typography variant="body2" sx={{ mb: 2 }}>
                 Comfort: 20.8°C
